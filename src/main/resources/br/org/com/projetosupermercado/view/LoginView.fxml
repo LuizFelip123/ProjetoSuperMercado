@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="559.0" prefWidth="729.0" stylesheets="@style/loginview.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="565.0" prefWidth="342.0" styleClass="painel-login" stylesheets="@style/loginview.css">
+         <children>
+            <ImageView fitHeight="297.0" fitWidth="223.0" layoutX="48.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@style/img/shopping-cart.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="90.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistema de Vendas ">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <TextField layoutX="389.0" layoutY="210.0" prefHeight="26.0" prefWidth="296.0" promptText="Usuário" styleClass="field" stylesheets="@style/loginview.css" />
+      <TextField layoutX="389.0" layoutY="283.0" prefHeight="26.0" prefWidth="296.0" promptText="Senha" styleClass="field" stylesheets="@style/loginview.css" />
+      <Button layoutX="428.0" layoutY="368.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="233.0" stylesheets="@style/loginview.css" text="Entrar" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Text layoutX="471.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" textAlignment="CENTER" wrappingWidth="104.9794921875">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

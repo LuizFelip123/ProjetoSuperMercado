@@ -1,0 +1,21 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+
+
+.painel-login{
+   -fx-background-color: linear-gradient(to  right bottom, #ee7e0e, #e4ad7a);   
+}
+.button{
+       -fx-background-color: linear-gradient(to  right bottom, #ee7e0e, #e4ad7a);   
+
+}
+
+
+
+.field{
+    -fx-background-color: transparent;
+    -fx-border-width: 0px 0px 1px 0px; 
+    -fx-border-color:#000 ; 
+}

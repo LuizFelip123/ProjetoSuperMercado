@@ -1,0 +1,11 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.painel{
+       -fx-background-color: linear-gradient(to  right bottom, #ee7e0e, #e4ad7a);   
+
+}
+.btn-principal{
+   -fx-background-color: transparent ;  
+}
