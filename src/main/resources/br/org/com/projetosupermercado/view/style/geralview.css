@@ -1,0 +1,24 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 09/01/2023, 17:01:21
+    Author     : Cliente
+*/
+
+.btn{
+    
+ -fx-background-color: linear-gradient(to  right bottom, #ee7e0e, #e4ad7a);   
+    -fx-border-radius: 20px;
+    -fx-fill: #ffffff;
+     -fx-cursor: hand;
+}
+
+
+.field{
+    -fx-background-color: transparent;
+    -fx-border-width: 0px 0px 1px 0px; 
+    -fx-border-color:#000 ; 
+}
