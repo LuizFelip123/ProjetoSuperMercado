@@ -1,2 +1,3 @@
-br\org\com\projetosupermercado\App.class
+br\org\com\projetosupermercado\controller\TelaPrincipalViewController.class
 br\org\com\projetosupermercado\controller\LoginViewController.class
+br\org\com\projetosupermercado\App.class

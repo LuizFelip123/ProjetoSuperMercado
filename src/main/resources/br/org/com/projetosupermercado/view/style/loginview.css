@@ -9,7 +9,7 @@
 }
 .button{
        -fx-background-color: linear-gradient(to  right bottom, #ee7e0e, #e4ad7a);   
-
+      -fx-cursor: hand;
 }
 
 

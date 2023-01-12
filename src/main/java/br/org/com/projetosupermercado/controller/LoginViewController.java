@@ -5,9 +5,16 @@
  */
 package br.org.com.projetosupermercado.controller;
 
+import br.org.com.projetosupermercado.db.ProdutoDAO;
+import br.org.com.projetosupermercado.model.Produto;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -19,9 +26,20 @@ public class LoginViewController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    @FXML
+    private TextField campoUser;
+    @FXML
+    private Button buttonEntrar;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+        buttonEntrar.setOnMouseClicked(((MouseEvent e) -> {
+            //verificação
+              Produto produto = new Produto();
+              ProdutoDAO prod = new ProdutoDAO();
+              prod.add(produto);
+              
     
+        } )); 
+       }
 }
