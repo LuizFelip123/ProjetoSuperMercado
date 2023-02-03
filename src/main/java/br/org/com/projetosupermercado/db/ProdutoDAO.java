@@ -23,15 +23,10 @@ public class ProdutoDAO implements DAO{
        private PreparedStatement statement;
     @Override
     public void add(Produto produto) {
-       produto.setId(1);
-       produto.setDescricao("Nao sei");
-       produto.setMarca("descr");
-       produto.setPreco(3.3);
-       produto.setNome("vitarela");
-       produto.setQuantidade(2);
+     
            try {
-               String sql = "INSERT INTO produto (`cod`, `nome`, `marca`, `quantidade`,  `preco`, `descricao`) VALUES (?,?,?,?,?);";
-               ConnectionDataBase.getConnection().prepareStatement(sql);
+               String sql = "INSERT INTO produto (`cod`, `nome`, `marca`, `quantidade`,  `preco`, `descricao`) VALUES (?,?,?,?,?, ?);";
+              statement = ConnectionDataBase.getConnection().prepareStatement(sql);
                statement.setInt(1, produto.getId());
                statement.setString(2, produto.getNome());
                statement.setString(3, produto.getMarca());
@@ -74,10 +69,10 @@ public class ProdutoDAO implements DAO{
                 Produto produto = new Produto();
                 produto.setId(resposta.getInt("cod"));
                 produto.setMarca(resposta.getString("marca"));
-                produto.setQuantidade(resposta.getInt("quant"));
-                
-                produto.setPreco(resposta.getDouble("valor"));
-                
+                produto.setQuantidade(resposta.getInt("quantidade"));
+                produto.setPreco(resposta.getDouble("preco"));
+                produto.setNome(resposta.getString("nome"));
+                produto.setDescricao(resposta.getString("descricao"));
                 produtos.add(produto);
                 
             }
@@ -89,7 +84,7 @@ public class ProdutoDAO implements DAO{
         
             try {
                 statement.close();
-                conexao.close();
+
             } catch (SQLException ex) {
                 Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
             }

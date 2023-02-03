@@ -14,7 +14,8 @@ public class Produto {
     private String nome;
     private String descricao;
     private double preco;
-
+    private String marca;
+    private int quantidade;
     public int getQuantidade() {
         return quantidade;
     }
@@ -22,8 +23,7 @@ public class Produto {
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
-    private String marca;
-    private int quantidade;
+
     
     public int getId() {
         return id;

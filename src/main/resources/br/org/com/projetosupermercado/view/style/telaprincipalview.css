@@ -7,7 +7,11 @@
 
 }
 .btn-principal{
-   -fx-background-color: transparent ;  
+   -fx-background-color: transparent ; 
+  -fx-cursor: hand;
+}
+.btn-principal:hover{
+   -fx-background-color:#e4ad7a;     
 }
 
 
