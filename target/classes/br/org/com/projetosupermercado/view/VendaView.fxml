@@ -35,7 +35,7 @@
                   <TextField fx:id="campoValor" editable="false" layoutX="56.0" layoutY="110.0" />
                   <TextField fx:id="campoTroco" editable="false" layoutX="57.0" layoutY="178.0" />
                   <Button fx:id="botaoCalcularTroco" layoutX="28.0" layoutY="239.0" mnemonicParsing="false" onMouseClicked="#calcularTroco" prefHeight="25.0" prefWidth="208.0" text="Calcular" />
-                  <Button layoutX="34.0" layoutY="491.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="192.0" text="Vender" />
+                  <Button layoutX="34.0" layoutY="491.0" mnemonicParsing="false" onMouseClicked="#venderProdutos" prefHeight="25.0" prefWidth="192.0" text="Vender" />
                   <Text layoutX="115.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="=">
                      <font>
                         <Font name="System Bold" size="18.0" />
@@ -61,7 +61,7 @@
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Text>
-                  <Button layoutX="34.0" layoutY="444.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="192.0" text="Remover Item" />
+                  <Button layoutX="34.0" layoutY="444.0" mnemonicParsing="false" onMouseClicked="#removerItem" prefHeight="25.0" prefWidth="192.0" text="Remover Item" />
                </children>
             </AnchorPane>
          </right>

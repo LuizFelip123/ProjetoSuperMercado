@@ -76,10 +76,11 @@ public class VendaViewController implements Initializable {
 
     private ObservableList<Produto> observableProduto;
     private List<Produto> listaProduto = new ArrayList<>();
-
+    private Produto produto;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         carregarTabela();
+         tableProduto.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue)->selecionarItem(newValue));
     }
 
     private void carregarTabela() {
@@ -153,4 +154,22 @@ public class VendaViewController implements Initializable {
             Logger.getLogger(LoginViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+     private void selecionarItem(Produto produto){
+      
+      this.produto = produto;  
+    } 
+     
+    @FXML
+   public void venderProdutos(MouseEvent event) {
+       
+    }
+   
+     @FXML
+   public void removerItem(MouseEvent event) {
+      if(produto != null){
+          listaProduto.remove(produto);
+      }
+      
+      carregarTabela();
+    }  
 }

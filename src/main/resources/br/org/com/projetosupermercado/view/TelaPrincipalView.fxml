@@ -50,7 +50,7 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <AnchorPane fx:id="painelConsulta" layoutX="275.0" layoutY="231.0" prefHeight="615.0" prefWidth="846.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane fx:id="painelConsulta" layoutX="275.0" layoutY="231.0" prefHeight="615.0" prefWidth="846.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <TableView fx:id="tableProduto" layoutX="13.0" layoutY="73.0" prefHeight="536.0" prefWidth="776.0" styleClass="table-alunos" stylesheets="@style/telaprincipalview.css">
                           <columns>
@@ -62,11 +62,12 @@
                               <TableColumn fx:id="columnMarca" prefWidth="159.0" text="Marca" />
                           </columns>
                         </TableView>
+                        <TextField layoutX="21.0" layoutY="34.0" prefHeight="25.0" prefWidth="415.0" promptText="Pesquisar Código " />
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="painelCadastro" layoutX="-6.0" prefHeight="615.0" prefWidth="861.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-6.0" AnchorPane.rightAnchor="-9.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane fx:id="painelCadastro" layoutX="-6.0" prefHeight="615.0" prefWidth="861.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-6.0" AnchorPane.rightAnchor="-9.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Text layoutX="368.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastro de Produto">
+                        <Text layoutX="265.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastro de Produto">
                            <font>
                               <Font size="21.0" />
                            </font>
