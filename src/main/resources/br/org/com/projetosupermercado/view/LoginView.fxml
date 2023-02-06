@@ -37,5 +37,10 @@
          </font>
       </Text>
       <PasswordField fx:id="campoSenha" layoutX="389.0" layoutY="291.0" prefHeight="25.0" prefWidth="296.0" promptText="Senha" styleClass="field" />
+      <Button layoutX="685.0" layoutY="8.0" mnemonicParsing="false" onMouseClicked="#fecharWindow" style="-fx-background-color: transparent;" text="X" textFill="#f29112">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

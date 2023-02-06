@@ -14,7 +14,8 @@ import java.util.List;
  */
 public interface DAO {
    public void add(Produto produto);
-   public void remove(Produto produto);
+   public void remove(int id);
    public List<Produto> getAll();
    public void update(Produto produto);
+   public Produto findById(int id);
 }

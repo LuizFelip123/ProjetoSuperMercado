@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="626.0" prefWidth="907.0" stylesheets="@style/VendaView.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.org.com.projetosupermercado.controller.VendaViewController">
+   <children>
+      <BorderPane layoutX="343.0" layoutY="113.0" prefHeight="626.0" prefWidth="907.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <AnchorPane prefHeight="77.0" prefWidth="907.0" styleClass="painel" stylesheets="@style/VendaView.css" BorderPane.alignment="CENTER">
+               <children>
+                  <Text fill="WHITE" layoutX="399.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Caixa " textAlignment="CENTER" wrappingWidth="169.8720703125">
+                     <font>
+                        <Font name="Arial Bold" size="26.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="botaoVoltar" layoutX="1.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#voltar" prefHeight="30.0" prefWidth="162.0" style="-fx-background-color: transparent;" text="Voltar " textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </top>
+         <right>
+            <AnchorPane prefHeight="549.0" prefWidth="263.0" style="-fx-border-color: #000;" BorderPane.alignment="CENTER">
+               <children>
+                  <TextField fx:id="campoPago" layoutX="58.0" layoutY="45.0" />
+                  <TextField fx:id="campoValor" editable="false" layoutX="56.0" layoutY="110.0" />
+                  <TextField fx:id="campoTroco" editable="false" layoutX="57.0" layoutY="178.0" />
+                  <Button fx:id="botaoCalcularTroco" layoutX="28.0" layoutY="239.0" mnemonicParsing="false" onMouseClicked="#calcularTroco" prefHeight="25.0" prefWidth="208.0" text="Calcular" />
+                  <Button layoutX="34.0" layoutY="491.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="192.0" text="Vender" />
+                  <Text layoutX="115.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="=">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="113.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#da880d" layoutX="102.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Troco">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="31.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="textValor" layoutX="102.0" layoutY="368.0" strokeType="OUTSIDE" strokeWidth="0.0" text="R$ 15,50">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </Text>
+                  <Button layoutX="34.0" layoutY="444.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="192.0" text="Remover Item" />
+               </children>
+            </AnchorPane>
+         </right>
+         <center>
+            <AnchorPane prefHeight="549.0" prefWidth="761.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TableView fx:id="tableProduto" layoutX="14.0" layoutY="44.0" prefHeight="478.0" prefWidth="740.0" styleClass="table" stylesheets="@style/VendaView.css">
+                    <columns>
+                      <TableColumn fx:id="columnCodigo" prefWidth="127.0" text="Código" />
+                      <TableColumn fx:id="columnMarca" prefWidth="249.0" text="Marca" />
+                        <TableColumn fx:id="columnNome" prefWidth="164.0" text="Nome" />
+                        <TableColumn fx:id="columnPreco" prefWidth="199.0" text="Preço" />
+                    </columns>
+                  </TableView>
+                  <TextField fx:id="campoCodigo" layoutX="15.0" layoutY="14.0" prefHeight="25.0" prefWidth="231.0" promptText="Código" />
+                  <Button fx:id="botaoBuscar" layoutX="506.0" layoutY="9.0" mnemonicParsing="false" onMouseClicked="#buscarProduto" prefHeight="30.0" prefWidth="154.0" text="Buscar Produto" />
+                  <TextField fx:id="campoQuantidade" layoutX="281.0" layoutY="14.0" prefHeight="25.0" prefWidth="186.0" promptText="Quantidade" />
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

@@ -5,8 +5,7 @@
  */
 package br.org.com.projetosupermercado.controller;
 
-import br.org.com.projetosupermercado.db.ProdutoDAO;
-import br.org.com.projetosupermercado.model.Produto;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -42,6 +41,8 @@ public class LoginViewController implements Initializable {
     
     @FXML
     private PasswordField campoSenha;
+    
+    private double x  =0, y =0;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -52,6 +53,7 @@ public class LoginViewController implements Initializable {
                try {
                    Stage stage  = new Stage();  
                    Parent root = FXMLLoader.load(getClass().getResource("/br/org/com/projetosupermercado/view/TelaPrincipalView.fxml"));
+                   styleRoot(root, stage);
                    buttonEntrar.getScene().getWindow().hide();
                    stage.initStyle(StageStyle.TRANSPARENT);
                    Scene scene = new Scene(root);
@@ -72,4 +74,29 @@ public class LoginViewController implements Initializable {
     
         } )); 
        }
+    
+    @FXML
+    void fecharWindow(MouseEvent event) {
+        System.exit(0);
+    }
+
+    private void styleRoot(Parent root, Stage stage ) {
+        
+           root.setOnMousePressed((MouseEvent e)->{
+                x = e.getSceneX();
+                y = e.getSceneY();
+                
+            });
+            
+            root.setOnMouseDragged((MouseEvent e)->{
+                
+                stage.setX(e.getScreenX()-x);
+                stage.setY(e.getScreenY()-y);
+                stage.setOpacity(0.4);
+            });
+            
+            root.setOnMouseReleased((MouseEvent e )->{
+                stage.setOpacity(1);
+            });
+    }
 }

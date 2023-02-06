@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -7,9 +7,12 @@ package br.org.com.projetosupermercado.controller;
 
 import br.org.com.projetosupermercado.db.ProdutoDAO;
 import br.org.com.projetosupermercado.model.Produto;
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -24,6 +27,11 @@ import javafx.scene.layout.AnchorPane;
 
 import javafx.collections.FXCollections;
  import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 /**
  * FXML Controller class
  *
@@ -95,7 +103,7 @@ public class TelaPrincipalViewController implements Initializable {
     @FXML
     private Button menuSair;
     private ObservableList<Produto> observableProduto;
-    
+    private double x = 0, y =0;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -103,7 +111,21 @@ public class TelaPrincipalViewController implements Initializable {
          menuSair.setOnMouseClicked(new EventHandler<MouseEvent>(){
              @Override
              public void handle(MouseEvent t) {
-                    
+                 try {
+                 Stage stage  = new Stage();
+                 Parent root = FXMLLoader.load(getClass().getResource("/br/org/com/projetosupermercado/view/LoginView.fxml"));
+                 menuVender.getScene().getWindow().hide();
+                 stage.initStyle(StageStyle.TRANSPARENT);
+                 styleRoot(root, stage);
+                 Scene scene = new Scene(root);
+                  
+                 stage.setScene(scene);
+                  
+                 stage.show();
+             } catch (IOException ex) {
+                 Logger.getLogger(TelaPrincipalViewController.class.getName()).log(Level.SEVERE, null, ex);
+             } 
+                 
              }   
         });
          menuAdicionar.setOnMouseClicked(new EventHandler<MouseEvent>(){
@@ -123,6 +145,28 @@ public class TelaPrincipalViewController implements Initializable {
              painelCadastro.setVisible(false);
          }
          });
+         
+         menuVender.setOnMouseClicked(new EventHandler<MouseEvent>(){
+         @Override
+         public void handle(MouseEvent t){
+             try {
+                 Stage stage  = new Stage();
+                 Parent root = FXMLLoader.load(getClass().getResource("/br/org/com/projetosupermercado/view/VendaView.fxml"));
+                 menuVender.getScene().getWindow().hide();
+                  styleRoot(root, stage);
+                 stage.initStyle(StageStyle.TRANSPARENT);
+                 Scene scene = new Scene(root);
+                 
+                 stage.setScene(scene);
+                  
+                 stage.show();
+             } catch (IOException ex) {
+                 Logger.getLogger(TelaPrincipalViewController.class.getName()).log(Level.SEVERE, null, ex);
+             }
+         
+         }
+         });
+           tableProduto.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue)->selecionarItem(newValue));
     }  
     
      @FXML
@@ -142,7 +186,7 @@ public class TelaPrincipalViewController implements Initializable {
     }
      private void carregarTabela(){
          ProdutoDAO dao = new ProdutoDAO();
-         List<Produto> listaProduto =  dao.getAll();
+        List<Produto> listaProduto =  dao.getAll();
         columnCodigo.setCellValueFactory(new PropertyValueFactory<>("id"));
         columnMarca.setCellValueFactory(new PropertyValueFactory<>("marca"));
         columnQuantidade.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
@@ -154,5 +198,43 @@ public class TelaPrincipalViewController implements Initializable {
         observableProduto = FXCollections.observableArrayList(listaProduto);
         tableProduto.setItems(observableProduto);
 
+    }
+    private void selecionarItem(Produto produto){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/org/com/projetosupermercado/view/EditarView.fxml"));
+            Stage stage  = new Stage();
+            Parent  root = (Parent) loader.load();
+            styleRoot(root, stage);
+            EditarController controller = loader.<EditarController>getController();
+            controller.setProduto(produto);
+            stage.initStyle(StageStyle.TRANSPARENT);
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            
+            stage.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(TelaPrincipalViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        carregarTabela();
+    } 
+    
+        private void styleRoot(Parent root, Stage stage ) {
+        
+           root.setOnMousePressed((MouseEvent e)->{
+                x = e.getSceneX();
+                y = e.getSceneY();
+                
+            });
+            
+            root.setOnMouseDragged((MouseEvent e)->{
+                
+                stage.setX(e.getScreenX()-x);
+                stage.setY(e.getScreenY()-y);
+                stage.setOpacity(0.4);
+            });
+            
+            root.setOnMouseReleased((MouseEvent e )->{
+                stage.setOpacity(1);
+            });
     }
 }
