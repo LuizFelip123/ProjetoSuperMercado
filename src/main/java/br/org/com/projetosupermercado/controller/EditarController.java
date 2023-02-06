@@ -12,9 +12,11 @@ import java.sql.Time;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 /**
  *
@@ -54,7 +56,7 @@ public class EditarController  implements Initializable {
 
     public void setProduto(Produto produto) {
         this.produto = produto;
-         campoCodigo.setText(String.valueOf(produto.getId()));
+       campoCodigo.setText(String.valueOf(produto.getId()));
         campoDescricao.setText(produto.getDescricao());
         campoMarca.setText(produto.getMarca());
         campoNome.setText(produto.getNome());
@@ -68,7 +70,8 @@ public class EditarController  implements Initializable {
     }
     @FXML
    public void cancelar(MouseEvent event) {
-      
+        Stage stage =(Stage) buttonCancelar.getScene().getWindow();
+        stage.close();
       
     }
 

@@ -201,6 +201,7 @@ public class TelaPrincipalViewController implements Initializable {
     }
     private void selecionarItem(Produto produto){
         try {
+          if(produto != null){
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/org/com/projetosupermercado/view/EditarView.fxml"));
             Stage stage  = new Stage();
             Parent  root = (Parent) loader.load();
@@ -212,10 +213,11 @@ public class TelaPrincipalViewController implements Initializable {
             stage.setScene(scene);
             
             stage.showAndWait();
+          }
         } catch (IOException ex) {
             Logger.getLogger(TelaPrincipalViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        carregarTabela();
+        
     } 
     
         private void styleRoot(Parent root, Stage stage ) {
