@@ -77,6 +77,7 @@ public class VendaViewController implements Initializable {
     private ObservableList<Produto> observableProduto;
     private List<Produto> listaProduto = new ArrayList<>();
     private Produto produto;
+    private double x =0, y =0;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         carregarTabela();
@@ -143,8 +144,9 @@ public class VendaViewController implements Initializable {
             Stage stage = new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("/br/org/com/projetosupermercado/view/TelaPrincipalView.fxml"));
             botaoBuscar.getScene().getWindow().hide();
-
+                
             stage.initStyle(StageStyle.TRANSPARENT);
+            styleRoot(root, stage);
             Scene scene = new Scene(root);
 
             stage.setScene(scene);
@@ -168,8 +170,30 @@ public class VendaViewController implements Initializable {
    public void removerItem(MouseEvent event) {
       if(produto != null){
           listaProduto.remove(produto);
+          
       }
       
       carregarTabela();
+       calcularPreco();
     }  
+   
+    private void styleRoot(Parent root, Stage stage ) {
+        
+           root.setOnMousePressed((MouseEvent e)->{
+                x = e.getSceneX();
+                y = e.getSceneY();
+                
+            });
+            
+            root.setOnMouseDragged((MouseEvent e)->{
+                
+                stage.setX(e.getScreenX()-x);
+                stage.setY(e.getScreenY()-y);
+                stage.setOpacity(0.4);
+            });
+            
+            root.setOnMouseReleased((MouseEvent e )->{
+                stage.setOpacity(1);
+            });
+    }
 }

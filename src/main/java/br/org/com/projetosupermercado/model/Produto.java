@@ -10,12 +10,14 @@ package br.org.com.projetosupermercado.model;
  * @author Cliente
  */
 public class Produto {
+
     private int id;
     private String nome;
     private String descricao;
     private double preco;
     private String marca;
     private int quantidade;
+
     public int getQuantidade() {
         return quantidade;
     }
@@ -24,7 +26,6 @@ public class Produto {
         this.quantidade = quantidade;
     }
 
-    
     public int getId() {
         return id;
     }
@@ -64,5 +65,19 @@ public class Produto {
     public void setMarca(String marca) {
         this.marca = marca;
     }
-    
+
+    @Override
+    public boolean equals(Object obj) {
+        Produto pro = (Produto) obj;
+        if (pro != null) {
+
+            if (pro.getId() == this.getId()) {
+                return true;
+            }
+
+        }
+        return false;
+
+    }
+
 }

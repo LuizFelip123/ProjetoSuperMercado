@@ -56,7 +56,7 @@
                         <Font name="System Bold" size="22.0" />
                      </font>
                   </Text>
-                  <Text fx:id="textValor" layoutX="102.0" layoutY="368.0" strokeType="OUTSIDE" strokeWidth="0.0" text="R$ 15,50">
+                  <Text fx:id="textValor" layoutX="102.0" layoutY="368.0" strokeType="OUTSIDE" strokeWidth="0.0" text="R$ 0,00">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font>

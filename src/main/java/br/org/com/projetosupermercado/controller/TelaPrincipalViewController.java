@@ -45,7 +45,7 @@ public class TelaPrincipalViewController implements Initializable {
     @FXML
     private TableView<Produto> tableProduto;
        @FXML
-    private TableColumn<Produto, Integer> columnCodigo;
+    private TableColumn <Produto, Integer> columnCodigo;
 
     @FXML
     private TableColumn<Produto, String> columnDescricao;
